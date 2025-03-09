@@ -1,12 +1,14 @@
 import { cn } from "@/shared/cn";
 import { SubscriptionLayout } from "@/widgets/subscription-layout";
 import Image from "next/image";
-import { useState } from "react";
 import { When } from "@modern-kit/react";
 import { Iterator } from "@modern-kit/react";
+
+type PlanType = "arcade" | "advanced" | "pro";
+
 type PlanOption = {
   id: number;
-  type: "arcade" | "advanced" | "pro";
+  type: PlanType;
   title: string;
   price: number;
   icon: string;
@@ -37,34 +39,21 @@ const planOptions: PlanOption[] = [
 ];
 
 export const TwoSelectPlanStep = ({
-  이전_스탭_이동,
-  다음_스탭_이동,
+  plan,
+  handlePlanSelection,
+  toggleBillingCycle,
+  prevStep,
+  nextStep,
 }: {
-  이전_스탭_이동: () => void;
-  다음_스탭_이동: () => void;
-}) => {
-  const [plan, setPlan] = useState<{
-    type: PlanOption["type"] | null;
+  plan: {
+    type: PlanType;
     isYearly: boolean;
-  }>({
-    type: "arcade",
-    isYearly: false,
-  });
-
-  const handlePlanSelection = (selectedPlan: PlanOption) => {
-    setPlan((prev) => ({
-      ...prev,
-      type: selectedPlan.type,
-    }));
   };
-
-  const toggleBillingCycle = () => {
-    setPlan((prev) => ({
-      ...prev,
-      isYearly: !prev.isYearly,
-    }));
-  };
-
+  handlePlanSelection: (type: PlanType) => void;
+  toggleBillingCycle: () => void;
+  prevStep: () => void;
+  nextStep: () => void;
+}) => {
   return (
     <SubscriptionLayout
       현재_단계={2}
@@ -85,7 +74,7 @@ export const TwoSelectPlanStep = ({
               items={planOptions}
               renderItem={(option) => (
                 <div
-                  onClick={() => handlePlanSelection(option)}
+                  onClick={() => handlePlanSelection(option.type)}
                   className={cn(
                     "h-[183px] w-[138px] cursor-pointer rounded-lg border px-[16px] pt-[20px] pb-[16px] hover:border-[#6259FF]",
                     {
@@ -152,13 +141,13 @@ export const TwoSelectPlanStep = ({
           {/* Prev / Next Step 버튼 영역 */}
           <div className="mt-[24px] flex justify-between">
             <button
-              onClick={이전_스탭_이동}
+              onClick={prevStep}
               className="h-[48px] w-[123px] cursor-pointer rounded-lg text-[#9699AA]"
             >
               Go Back
             </button>
             <button
-              onClick={다음_스탭_이동}
+              onClick={nextStep}
               className="h-[48px] w-[123px] cursor-pointer rounded-lg bg-[#022959] text-[#fff]"
             >
               Next Step

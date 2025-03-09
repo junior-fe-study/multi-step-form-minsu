@@ -1,15 +1,21 @@
 import { SubscriptionLayout } from "@/widgets/subscription-layout";
 
 export const OneYourInfoStep = ({
+  name,
+  email,
+  phone,
   handleNameChange,
   handleEmailChange,
   handlePhoneNumberChange,
-  다음_스탭_이동,
+  nextStep,
 }: {
+  name: string;
+  email: string;
+  phone: string;
   handleNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handlePhoneNumberChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  다음_스탭_이동: () => void;
+  nextStep: () => void;
 }) => {
   return (
     <SubscriptionLayout
@@ -31,6 +37,7 @@ export const OneYourInfoStep = ({
               <label className="text-sm font-medium text-gray-700">Name</label>
               <input
                 type="text"
+                value={name}
                 onChange={handleNameChange}
                 className={
                   "w-full rounded-lg border border-gray-200 p-3 text-black placeholder:text-gray-400 focus:border-[#6259FF]"
@@ -45,6 +52,7 @@ export const OneYourInfoStep = ({
               </label>
               <input
                 type="text"
+                value={email}
                 onChange={handleEmailChange}
                 className={
                   "w-full rounded-lg border border-gray-200 p-3 text-black placeholder:text-gray-400 focus:border-[#6259FF]"
@@ -59,6 +67,7 @@ export const OneYourInfoStep = ({
               </label>
               <input
                 type="text"
+                value={phone}
                 onChange={handlePhoneNumberChange}
                 className={
                   "w-full rounded-lg border border-gray-200 p-3 text-black placeholder:text-gray-400 focus:border-[#6259FF]"
@@ -71,7 +80,7 @@ export const OneYourInfoStep = ({
           <div className="mt-[24px] flex justify-end">
             <button
               className="h-[48px] w-[123px] cursor-pointer rounded-lg bg-[#022959] text-[#fff]"
-              onClick={다음_스탭_이동}
+              onClick={nextStep}
             >
               Next Step
             </button>
