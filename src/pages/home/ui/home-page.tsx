@@ -1,27 +1,23 @@
 "use client";
 
 import {
+  Addon,
   FourSummaryStep,
   OneYourInfoStep,
+  Plan,
+  PLAN_PRICES,
   ResultThankYouStep,
   ThreeAddOnsStep,
   TwoSelectPlanStep,
 } from "@/features/subscription";
 import { createFunnelSteps, useFunnel } from "@use-funnel/browser";
 
-type Addon = {
-  id: 1 | 2 | 3;
-  title: string;
-  description: string;
-  price: number;
-};
-
 interface SubscriptionFunnelContext {
   name: string;
   email: string;
   phone: string;
   plan: {
-    type: "arcade" | "advanced" | "pro";
+    type: Plan;
     isYearly: boolean;
   };
   addons: Addon[];
@@ -53,7 +49,7 @@ export default function HomePage() {
       },
     },
   });
-  console.log(subscribe.context);
+
   return (
     <subscribe.Render
       YourInfo={({ history, context }) => (
@@ -84,9 +80,7 @@ export default function HomePage() {
       SelectPlan={({ history, context }) => (
         <TwoSelectPlanStep
           plan={context.plan!}
-          handlePlanSelection={(
-            selectedPlanType: "arcade" | "advanced" | "pro",
-          ) =>
+          handlePlanSelection={(selectedPlanType: Plan) =>
             history.push("SelectPlan", {
               ...context,
               plan: { ...context.plan, type: selectedPlanType },
@@ -144,27 +138,15 @@ export default function HomePage() {
           plan={context.plan}
           addons={context.addons}
           planPrice={(() => {
-            const planPrices = {
-              arcade: 9,
-              advanced: 12,
-              pro: 15,
-            };
-
             // 기본 가격 계산
-            const basePrice = planPrices[context.plan.type];
+            const basePrice = PLAN_PRICES[context.plan.type];
 
             // 연간/월간 구독에 따른 가격 조정
             return basePrice * (context.plan.isYearly ? 10 : 1);
           })()}
           total={(() => {
-            const planPrices = {
-              arcade: 9,
-              advanced: 12,
-              pro: 15,
-            };
-
             // 기본 플랜 가격 계산
-            const basePrice = planPrices[context.plan.type];
+            const basePrice = PLAN_PRICES[context.plan.type];
             const planPrice = basePrice * (context.plan.isYearly ? 10 : 1);
 
             const addonsTotal = context.addons.reduce((sum, addon) => {
