@@ -1,4 +1,21 @@
 import { SubscriptionLayout } from "@/widgets/subscription-layout";
+import { cva } from "class-variance-authority";
+
+const inputVariants = cva(
+  "w-full rounded-lg border p-3 text-black placeholder:text-gray-400 focus:outline-none",
+  {
+    variants: {
+      state: {
+        default: "border-gray-200 focus:border-[#6259FF]",
+        error: "border-red-500 focus:border-red-500",
+        success: "border-green-500 focus:border-green-500",
+      },
+    },
+    defaultVariants: {
+      state: "default",
+    },
+  },
+);
 
 export const OneYourInfoStep = ({
   name,
@@ -39,9 +56,7 @@ export const OneYourInfoStep = ({
                 type="text"
                 value={name}
                 onChange={handleNameChange}
-                className={
-                  "w-full rounded-lg border border-gray-200 p-3 text-black placeholder:text-gray-400 focus:border-[#6259FF]"
-                }
+                className={inputVariants({ state: "default" })}
               />
             </div>
 
@@ -54,9 +69,7 @@ export const OneYourInfoStep = ({
                 type="text"
                 value={email}
                 onChange={handleEmailChange}
-                className={
-                  "w-full rounded-lg border border-gray-200 p-3 text-black placeholder:text-gray-400 focus:border-[#6259FF]"
-                }
+                className={inputVariants({ state: "default" })}
               />
             </div>
 
@@ -69,9 +82,7 @@ export const OneYourInfoStep = ({
                 type="text"
                 value={phone}
                 onChange={handlePhoneNumberChange}
-                className={
-                  "w-full rounded-lg border border-gray-200 p-3 text-black placeholder:text-gray-400 focus:border-[#6259FF]"
-                }
+                className={inputVariants({ state: "default" })}
               />
             </div>
           </form>

@@ -1,14 +1,7 @@
 import { SubscriptionLayout } from "@/widgets/subscription-layout";
 import { When } from "@modern-kit/react";
-
-type Addon = {
-  id: 1 | 2 | 3;
-  title: string;
-  description: string;
-  price: number;
-};
-
-type PlanType = "arcade" | "advanced" | "pro";
+import { Addon } from "../model/addon";
+import { Plan } from "../model/plan";
 
 export const FourSummaryStep = ({
   plan,
@@ -20,7 +13,7 @@ export const FourSummaryStep = ({
   nextStep,
 }: {
   plan: {
-    type: PlanType;
+    type: Plan;
     isYearly: boolean;
   };
   addons: Addon[];

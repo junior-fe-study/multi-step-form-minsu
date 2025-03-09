@@ -3,12 +3,11 @@ import { SubscriptionLayout } from "@/widgets/subscription-layout";
 import Image from "next/image";
 import { When } from "@modern-kit/react";
 import { Iterator } from "@modern-kit/react";
-
-type PlanType = "arcade" | "advanced" | "pro";
+import { Plan } from "../model/plan";
 
 type PlanOption = {
   id: number;
-  type: PlanType;
+  type: Plan;
   title: string;
   price: number;
   icon: string;
@@ -46,10 +45,10 @@ export const TwoSelectPlanStep = ({
   nextStep,
 }: {
   plan: {
-    type: PlanType;
+    type: Plan;
     isYearly: boolean;
   };
-  handlePlanSelection: (type: PlanType) => void;
+  handlePlanSelection: (type: Plan) => void;
   toggleBillingCycle: () => void;
   prevStep: () => void;
   nextStep: () => void;

@@ -1,15 +1,8 @@
 import { cn } from "@/shared/cn";
 import { SubscriptionLayout } from "@/widgets/subscription-layout";
 import { Iterator } from "@modern-kit/react";
-
-type PlanType = "arcade" | "advanced" | "pro";
-
-type Addon = {
-  id: 1 | 2 | 3;
-  title: string;
-  description: string;
-  price: number;
-};
+import { Addon } from "../model/addon";
+import { Plan } from "../model/plan";
 
 const ADDONS: Addon[] = [
   {
@@ -40,7 +33,7 @@ export const ThreeAddOnsStep = ({
   nextStep,
 }: {
   plan: {
-    type: PlanType;
+    type: Plan;
     isYearly: boolean;
   };
   addons: Addon[];
