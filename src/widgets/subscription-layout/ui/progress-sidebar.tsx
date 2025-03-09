@@ -4,7 +4,7 @@ import { cn } from "@/shared/cn";
 
 export const ProgressSidebar = ({ 현재_단계 }: { 현재_단계: number }) => {
   return (
-    <div className="flex h-[568px] w-[274px] flex-col items-center justify-items-start gap-8 rounded-lg bg-[#6259FF] pt-[36px] pr-[32px]">
+    <div className="mt-[16px] flex h-[568px] w-[274px] flex-col items-center justify-items-start gap-8 rounded-lg bg-[#6259FF] pt-[36px] pr-[32px]">
       <Iterator
         itemKey="number"
         items={STEPS}
