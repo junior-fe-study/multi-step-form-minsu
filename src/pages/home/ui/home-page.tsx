@@ -138,14 +138,14 @@ export default function HomePage() {
           plan={context.plan}
           addons={context.addons}
           planPrice={(() => {
-            // 기본 가격 계산
+            // Base price calculation
             const basePrice = PLAN_PRICES[context.plan.type];
 
-            // 연간/월간 구독에 따른 가격 조정
+            // Adjust price based on yearly/monthly subscription
             return basePrice * (context.plan.isYearly ? 10 : 1);
           })()}
           total={(() => {
-            // 기본 플랜 가격 계산
+            // Base plan price calculation
             const basePrice = PLAN_PRICES[context.plan.type];
             const planPrice = basePrice * (context.plan.isYearly ? 10 : 1);
 
@@ -153,7 +153,7 @@ export default function HomePage() {
               return sum + addon.price * (context.plan.isYearly ? 10 : 1);
             }, 0);
 
-            // 총액 계산
+            // Total amount calculation
             return planPrice + addonsTotal;
           })()}
           handleChangePlan={() =>

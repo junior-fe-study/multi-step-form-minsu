@@ -43,10 +43,10 @@ export const ThreeAddOnsStep = ({
 }) => {
   return (
     <SubscriptionLayout
-      현재_단계={3}
+      CurrentStep={3}
       Content={
         <div>
-          {/* Step Title, Description 영역 */}
+          {/* Step Title, Description Area */}
           <h2 className="mb-[10px] text-3xl font-bold text-[#022959]">
             Select your plan
           </h2>
@@ -54,7 +54,7 @@ export const ThreeAddOnsStep = ({
             You have the option of monthly or yearly billing.
           </p>
 
-          {/* Add Ons Select 영역 */}
+          {/* Add Ons Select Area */}
           <div className="mt-[35px] w-[450px] space-y-4">
             <Iterator
               itemKey={"id"}
@@ -97,7 +97,7 @@ export const ThreeAddOnsStep = ({
             />
           </div>
 
-          {/* Prev / Next Step 버튼 영역 */}
+          {/* Prev / Next Step Button Area */}
           <div className="mt-[24px] flex justify-between">
             <button
               onClick={prevStep}

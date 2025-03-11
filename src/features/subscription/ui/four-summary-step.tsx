@@ -25,10 +25,10 @@ export const FourSummaryStep = ({
 }) => {
   return (
     <SubscriptionLayout
-      현재_단계={4}
+      CurrentStep={4}
       Content={
         <div>
-          {/* Step Title, Description 영역 */}
+          {/* Step Title, Description Area */}
           <h2 className="mb-[10px] text-3xl font-bold text-[#022959]">
             Finishing up
           </h2>
@@ -36,7 +36,7 @@ export const FourSummaryStep = ({
             Double-check everything looks OK before confirming.
           </p>
 
-          {/* 최종 Price 계산 영역 */}
+          {/* Final Price Calculation Area */}
           <div className="w-full max-w-[450px] space-y-6">
             <div className="space-y-4 rounded-lg bg-[#F8F9FF] p-6">
               <div className="flex items-center justify-between">
@@ -88,7 +88,7 @@ export const FourSummaryStep = ({
               </p>
             </div>
 
-            {/* Prev / Next Step 버튼 영역 */}
+            {/* Prev / Next Step Button Area */}
             <div className="mt-[24px] flex justify-between">
               <button
                 onClick={prevStep}

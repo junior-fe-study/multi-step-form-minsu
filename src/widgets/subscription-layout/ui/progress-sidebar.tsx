@@ -2,7 +2,7 @@ import { Iterator } from "@modern-kit/react";
 import { STEPS } from "../const/steps";
 import { cn } from "@/shared/cn";
 
-export const ProgressSidebar = ({ 현재_단계 }: { 현재_단계: number }) => {
+export const ProgressSidebar = ({ CurrentStep }: { CurrentStep: number }) => {
   return (
     <div className="mt-[16px] flex h-[568px] w-[274px] flex-col items-center justify-items-start gap-8 rounded-lg bg-[#6259FF] pt-[36px] pr-[32px]">
       <Iterator
@@ -14,15 +14,15 @@ export const ProgressSidebar = ({ 현재_단계 }: { 현재_단계: number }) =>
               className={cn(
                 "flex h-[33px] w-[33px] items-center justify-center rounded-full",
                 {
-                  "border bg-[#BEE2FD]": 현재_단계 === step.number,
-                  "border border-white": 현재_단계 !== step.number,
+                  "border bg-[#BEE2FD]": CurrentStep === step.number,
+                  "border border-white": CurrentStep !== step.number,
                 },
               )}
             >
               <p
                 className={cn("text-[12px] font-bold", {
-                  "text-black": 현재_단계 === step.number,
-                  "text-white": 현재_단계 !== step.number,
+                  "text-black": CurrentStep === step.number,
+                  "text-white": CurrentStep !== step.number,
                 })}
               >
                 {step.number}

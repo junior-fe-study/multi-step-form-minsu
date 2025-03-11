@@ -4,7 +4,7 @@ import Image from "next/image";
 export const ResultThankYouStep = () => {
   return (
     <SubscriptionLayout
-      현재_단계={4}
+      CurrentStep={4}
       Content={
         <div className="mt-[100px] flex items-center justify-center">
           <div className="flex flex-col items-center justify-center gap-3">
