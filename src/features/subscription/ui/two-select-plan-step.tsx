@@ -55,10 +55,10 @@ export const TwoSelectPlanStep = ({
 }) => {
   return (
     <SubscriptionLayout
-      현재_단계={2}
+      CurrentStep={2}
       Content={
         <div>
-          {/* Step Title, Description 영역 */}
+          {/* Step Title, Description Area */}
           <h2 className="mb-[10px] text-3xl font-bold text-[#022959]">
             Select your plan
           </h2>
@@ -66,7 +66,7 @@ export const TwoSelectPlanStep = ({
             You have the option of monthly or yearly billing.
           </p>
 
-          {/* Select Your Plan 영역 */}
+          {/* Select Your Plan Area */}
           <div className="mt-[35px] grid grid-cols-3 gap-4">
             <Iterator
               itemKey={"id"}
@@ -106,7 +106,7 @@ export const TwoSelectPlanStep = ({
             />
           </div>
 
-          {/* Monthly / Yearly Switch 영역 */}
+          {/* Monthly / Yearly Switch Area */}
           <div className="mt-8 rounded-lg bg-[#F8F9FF] p-4">
             <div className="flex items-center justify-center gap-6">
               <span
@@ -137,7 +137,7 @@ export const TwoSelectPlanStep = ({
             </div>
           </div>
 
-          {/* Prev / Next Step 버튼 영역 */}
+          {/* Prev / Next Step Button Area */}
           <div className="mt-[24px] flex justify-between">
             <button
               onClick={prevStep}

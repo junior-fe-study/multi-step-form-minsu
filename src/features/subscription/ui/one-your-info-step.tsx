@@ -36,10 +36,10 @@ export const OneYourInfoStep = ({
 }) => {
   return (
     <SubscriptionLayout
-      현재_단계={1}
+      CurrentStep={1}
       Content={
         <div className="">
-          {/* Step Title, Description 영역 */}
+          {/* Step Title, Description Area */}
           <h2 className="mb-[10px] text-3xl font-bold text-[#022959]">
             Personal info
           </h2>
@@ -47,9 +47,9 @@ export const OneYourInfoStep = ({
             Please provide your name, email address, and phone number.
           </p>
 
-          {/* Form 영역 */}
+          {/* Form Area */}
           <form className="mt-[40px]">
-            {/* Name Input 영역 */}
+            {/* Name Input Area */}
             <div className="flex flex-col gap-[8px]">
               <label className="text-sm font-medium text-gray-700">Name</label>
               <input
@@ -60,7 +60,7 @@ export const OneYourInfoStep = ({
               />
             </div>
 
-            {/* Email Address Input 영역 */}
+            {/* Email Address Input Area */}
             <div className="mt-[24px] flex flex-col gap-[8px]">
               <label className="text-sm font-medium text-gray-700">
                 Email Address
@@ -73,7 +73,7 @@ export const OneYourInfoStep = ({
               />
             </div>
 
-            {/* Phone Number Input 영역 */}
+            {/* Phone Number Input Area */}
             <div className="mt-[24px] flex flex-col gap-[8px]">
               <label className="text-sm font-medium text-gray-700">
                 Phone Number
